@@ -1,0 +1,334 @@
+/* RESET & VARIABLES */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --rouge: #e63946;
+  --vert: #2a9d8f;
+  --orange: #f4a261;
+  --fond: #fdfaf5;
+  --texte: #2d2d2d;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: var(--fond);
+  color: var(--texte);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+.header {
+  background: white;
+  padding: 15px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #e68a4e;
+}
+
+.nav a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: var(--texte);
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: var(--orange);
+}
+
+/* HERO */
+.hero {
+  padding: 100px 5%;
+  text-align: center;
+  background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('hero.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.hero h2 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  max-width: 700px;
+  margin: 0 auto 30px;
+}
+
+/* Bouton */
+.btn {
+  background-color: var(--orange);
+  color: white;
+  padding: 14px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  display: inline-block;
+  transition: all 0.3s;
+  box-shadow: 0 6px 15px rgba(244, 162, 97, 0.3);
+}
+
+.btn:hover {
+  background-color: #e68a4e;
+  transform: translateY(-3px);
+}
+
+/* MENU DU JOUR & PLATS */
+.menu-jour, .menu {
+  padding: 60px 5%;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  color: #2d2d2d;
+}
+
+.plats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.plat {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: all 0.4s;
+}
+
+.plat:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+.plat img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.plat-content {
+  padding: 20px;
+}
+
+.plat h3 {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.plat p {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--orange);
+  margin-bottom: 15px;
+}
+
+.plat button {
+  width: 100%;
+  padding: 12px;
+  background: var(--vert);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.plat button:hover {
+  background: #21867a;
+}
+
+/* CTA */
+.cta {
+  background: linear-gradient(135deg, var(--vert), #1f7a6f);
+  color: white;
+  padding: 70px 5%;
+  text-align: center;
+}
+
+/* PANIER */
+.plat-panier {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 18px 20px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.plat-panier button {
+  background: #e63946;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+/* Notification */
+.notification {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: var(--vert);
+  color: white;
+  padding: 16px 24px;
+  border-radius: 50px;
+  box-shadow: 0 10px 25px rgba(42, 157, 143, 0.3);
+  display: none;
+  z-index: 1000;
+  font-weight: 600;
+}
+
+.notification.show {
+  display: block;
+  animation: slideUp 0.4s;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Footer */
+.footer {
+  background: #222;
+  color: #ddd;
+  text-align: center;
+  padding: 30px 5%;
+  margin-top: auto;
+}
+/* Amélioration des cartes plats */
+.plat {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.plat:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.15);
+}
+
+.plat img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.plat-content {
+  padding: 20px;
+  text-align: center;
+}
+
+.plat h3 {
+  font-size: 1.35rem;
+  margin-bottom: 8px;
+  color: #2d2d2d;
+}
+
+.desc {
+  color: #555;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  min-height: 48px;
+}
+
+.plat button {
+  background: #2a9d8f;
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+  transition: all 0.3s;
+}
+
+.plat button:hover {
+  background: #21867a;
+  transform: scale(1.03);
+}
+/* ANIMATIONS STYLE VIDÉO */
+
+.typewriter {
+  overflow: hidden;
+  border-right: 3px solid #e67e22;
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: typing 3.5s steps(40, end) forwards, blink-caret 0.75s step-end infinite;
+}
+
+.typewriter2 {
+  overflow: hidden;
+  border-right: 3px solid #e67e22;
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: typing 4s steps(30, end) forwards, blink-caret 0.75s step-end infinite;
+  animation-delay: 3.5s;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #e67e22; }
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+  animation-delay: 5s;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* Amélioration cartes */
+.plat {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.plat.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

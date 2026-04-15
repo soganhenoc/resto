@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu – Resto Shalom</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo">
+      <h1>🍽️ Resto Shalom </h1>
+    </div>
+    <nav class="nav">
+      <a href="index.html">Accueil</a>
+      <a href="menu.html">Menu</a>
+      <a href="panier.html">Panier</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="menu">
+    <h2>Notre Menu Complet</h2>
+    <div class="plats" id="plats-container">
+      <!-- Les plats seront injectés ici par JavaScript -->
+    </div>
+  </section>
+
+  <!-- Notification -->
+  <div id="notification" class="notification"></div>
+
+  <footer class="footer">
+    <p>© 2026 – Resto Shalom • Lomé, Togo</p>
+  </footer>
+
+  <!-- Scripts dans le bon ordre -->
+  <script src="data.js"></script>
+  <script src="panier.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
